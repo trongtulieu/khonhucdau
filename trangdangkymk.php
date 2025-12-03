@@ -1,7 +1,15 @@
-  <?php
-         session_start();
-        include('ketnoi.php');
-  ?>
+<?php
+// Bắt đầu session để lấy số điện thoại từ trang trước
+session_start();
+
+// Kiểm tra nếu không có số điện thoại trong session, chuyển hướng về trang đầu
+if (!isset($_SESSION['dienthoai']) || empty($_SESSION['dienthoai'])) {
+    header('Location: xuLyDangKy.php');  // Thay 'index.php' bằng tên trang đầu của bạn
+    exit();
+}
+// Lấy số điện thoại từ session để hiển thị
+$dienthoai_hien_thi = htmlspecialchars($_SESSION['dienthoai']);
+?>
 <!DOCTYPE html>
 <html lang="vi">
 <head>
@@ -9,7 +17,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Đăng ký | Shopee Việt Nam</title>
   <style>
- * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
+    /* [Giữ nguyên toàn bộ CSS của bạn] */
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
     body { background-color: #f5f5f5}
     .header { background-color: #fff; padding: 10px 30px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #ddd; }
     .header img { height: 60px; }
@@ -214,19 +223,19 @@
       border-top: 1px solid #eee;
     }
     /*màu của mk*/
-  .rule {
+    .rule {
       color: #999;
       font-size: 12px;
       margin: 3px 0;
       user-select: none;
       transition: color 0.3s;
-}
-.rule.valid {
-  color: #38b000; /* màu xanh khi đúng */
-}
-.rule.invalid {
-  color: #e03e2f; /* màu đỏ khi sai */
-}
+    }
+    .rule.valid {
+      color: #38b000; /* màu xanh khi đúng */
+    }
+    .rule.invalid {
+      color: #e03e2f; /* màu đỏ khi sai */
+    }
     /* Responsive */
     @media(max-width: 450px) {
       .card {
@@ -268,114 +277,111 @@
       </svg>
       Thiết Lập Mật Khẩu
     </h1>
-    <p id="card-desc" class="desc">Bước cuối! Thiết lập mật khẩu để hoàn tất việc đăng ký.</p>
+    <p id="card-desc" class="desc">Bước cuối! Thiết lập mật khẩu cho số điện thoại <strong><?php echo $dienthoai_hien_thi; ?></strong>.</p>
 
-    <form id="passwordForm" novalidate>
+    <!-- Form submit đến ketnoi.php -->
+    <form id="passwordForm" action="xuLyDangKy.php" method="POST" novalidate>
       <div class="input-group">
-        <input type="password" id="password" placeholder="Mật khẩu" aria-describedby="passwordHelp" aria-required="true" required />
+        <input type="password" id="password" name="matkhau" placeholder="Mật khẩu" aria-describedby="passwordHelp" aria-required="true" required />
+        <input type="hidden" name="dienthoai" value="<?php echo htmlspecialchars($_SESSION['dienthoai']); ?>">
         <svg class="toggle-password" id="togglePassword" viewBox="0 0 24 24" aria-label="Hiện mật khẩu" role="button" tabindex="0">
           <path d="M12 6a9 9 0 0 1 9 6 9 9 0 0 1-18 0 9 9 0 0 1 9-6m0-2A11 11 0 0 0 1 12a11 11 0 0 0 22 0 11 11 0 0 0-11-8zM12 9a3 3 0 1 1 0 6 3 3 0 0 1 0-6z" />
         </svg>
       </div>
 
       <div id="passwordHelp" class="password-rules">
-  <div id="rule-lower" class="rule invalid">• Ít nhất một ký tự viết thường</div>
-  <div id="rule-upper" class="rule invalid">• Ít nhất một ký tự viết hoa</div>
-  <div id="rule-number" class="rule invalid">• Ít nhất một chữ số</div>
-  <div id="rule-special" class="rule invalid">• Ít nhất một ký tự đặc biệt (!@#$%^&*)</div>
-  <div id="rule-length" class="rule invalid">• Độ dài 8-16 ký tự</div>
-  <div id="rule-charset" class="rule invalid">• Chỉ sử dụng chữ cái, số và ký tự phổ biến</div>
-</div>
-
+        <div id="rule-lower" class="rule invalid">• Ít nhất một ký tự viết thường</div>
+        <div id="rule-upper" class="rule invalid">• Ít nhất một ký tự viết hoa</div>
+        <div id="rule-number" class="rule invalid">• Ít nhất một chữ số</div>
+        <div id="rule-special" class="rule invalid">• Ít nhất một ký tự đặc biệt (!@#$%^&*)</div>
+        <div id="rule-length" class="rule invalid">• Độ dài 8-16 ký tự</div>
+        <div id="rule-charset" class="rule invalid">• Chỉ sử dụng chữ cái, số và ký tự phổ biến</div>
+      </div>
+<form method="POST" action="trangdangkyht.php">
       <button type="submit" class="submit-btn" disabled>ĐĂNG KÝ</button>
     </form>
   </div>
+   
 </main>
 
 <footer>
-  <?php
-include ('footer.php');
-?>
+  <?php include('footer.php'); ?>
   &copy; 2025 Shopee. Tất cả các quyền được bảo lưu.
 </footer>
-
 <script>
   (function() {
-  const pwdInput = document.getElementById('password');
-  const togglePwdBtn = document.getElementById('togglePassword');
-  const submitBtn = document.querySelector('.submit-btn');
-  const form = document.getElementById('passwordForm');
+    const pwdInput = document.getElementById('password');
+    const togglePwdBtn = document.getElementById('togglePassword');
+    const submitBtn = document.querySelector('.submit-btn');
+    const form = document.getElementById('passwordForm');
 
-  // Các phần tử hiển thị trạng thái từng rule
-  const rules = {
-    lower: document.getElementById('rule-lower'),
-    upper: document.getElementById('rule-upper'),
-    number: document.getElementById('rule-number'),
-    special: document.getElementById('rule-special'),
-    length: document.getElementById('rule-length'),
-    charset: document.getElementById('rule-charset'),
-  };
-
-  // Toggle hiện/ẩn mật khẩu
-  togglePwdBtn.addEventListener('click', () => {
-    if(pwdInput.type === 'password') {
-      pwdInput.type = 'text';
-      togglePwdBtn.setAttribute('aria-label', 'Ẩn mật khẩu');
-    } else {
-      pwdInput.type = 'password';
-      togglePwdBtn.setAttribute('aria-label', 'Hiện mật khẩu');
-    }
-  });
-  togglePwdBtn.addEventListener('keydown', e => {
-    if(e.key === 'Enter' || e.key === ' ') {
-      e.preventDefault();
-      togglePwdBtn.click();
-    }
-  });
-
-  // Hàm kiểm tra password và cập nhật trạng thái cho từng rule
-  function validatePassword(value) {
-    const checks = {
-      lower: /[a-z]/.test(value),
-      upper: /[A-Z]/.test(value),
-      number: /[0-9]/.test(value),
-      special: /[!@#$%^&*]/.test(value),
-      length: value.length >=8 && value.length <=16,
-      charset: /^[A-Za-z0-9!@#$%^&*]*$/.test(value)
+    // Các phần tử hiển thị trạng thái từng rule
+    const rules = {
+      lower: document.getElementById('rule-lower'),
+      upper: document.getElementById('rule-upper'),
+      number: document.getElementById('rule-number'),
+      special: document.getElementById('rule-special'),
+      length: document.getElementById('rule-length'),
+      charset: document.getElementById('rule-charset'),
     };
 
-    // Cập nhật trạng thái hiển thị từng rule
-    for (const key in checks) {
-      if (checks[key]) {
-        rules[key].classList.add('valid');
-        rules[key].classList.remove('invalid');
+    // Toggle hiện/ẩn mật khẩu
+    togglePwdBtn.addEventListener('click', () => {
+      if (pwdInput.type === 'password') {
+        pwdInput.type = 'text';
+        togglePwdBtn.setAttribute('aria-label', 'Ẩn mật khẩu');
       } else {
-        rules[key].classList.add('invalid');
-        rules[key].classList.remove('valid');
+        pwdInput.type = 'password';
+        togglePwdBtn.setAttribute('aria-label', 'Hiện mật khẩu');
       }
+    });
+    togglePwdBtn.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        togglePwdBtn.click();
+      }
+    });
+
+    // Hàm kiểm tra password và cập nhật trạng thái cho từng rule
+    function validatePassword(value) {
+      const checks = {
+        lower: /[a-z]/.test(value),
+        upper: /[A-Z]/.test(value),
+        number: /[0-9]/.test(value),
+        special: /[!@#$%^&*]/.test(value),
+        length: value.length >= 8 && value.length <= 16,
+        charset: /^[A-Za-z0-9!@#$%^&*]*$/.test(value)
+      };
+
+      // Cập nhật trạng thái hiển thị từng rule
+      for (const key in checks) {
+        if (checks[key]) {
+          rules[key].classList.add('valid');
+          rules[key].classList.remove('invalid');
+        } else {
+          rules[key].classList.add('invalid');
+          rules[key].classList.remove('valid');
+        }
+      }
+
+      return Object.values(checks).every(Boolean);
     }
 
-    return Object.values(checks).every(Boolean);
-  }
+    // Sự kiện nhập input
+    pwdInput.addEventListener('input', () => {
+      const valid = validatePassword(pwdInput.value);
+      submitBtn.disabled = !valid;
+    });
 
-  // Sự kiện nhập input
-  pwdInput.addEventListener('input', () => {
-    const valid = validatePassword(pwdInput.value);
-    submitBtn.disabled = !valid;
-  });
-
-  // Xử lý submit form
-  form.addEventListener('submit', e => {
-    e.preventDefault();
-    if(validatePassword(pwdInput.value)) {
-      alert('Đăng ký mật khẩu thành công! 🎉');
-      // Xử lý tiếp như gửi dữ liệu,...
-    } else {
-      alert('Mật khẩu chưa đáp ứng đủ yêu cầu.');
-    }
-  });
-})();
-
+    // Xử lý submit form: Cho phép submit nếu valid, ngăn nếu không
+    form.addEventListener('submit', e => {
+      if (!validatePassword(pwdInput.value)) {
+        e.preventDefault();  // Ngăn submit nếu không valid
+        alert('Mật khẩu chưa đáp ứng đủ yêu cầu.');
+      }
+      // Nếu valid, cho phép form submit đến ketnoi.php
+    });
+  })();
 </script>
 </body>
 </html>

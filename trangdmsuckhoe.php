@@ -1,3 +1,6 @@
+<?php
+    include('header.php');
+?>
 <!DOCTYPE html>
 <html lang="vi">
 <head>
@@ -61,18 +64,18 @@
   </div>
 
   <div class="brand-grid">
-    <div class="brand-box">COOLMATE <img src="logo/coolmate.png" alt="Logo Coolmate"></div>
-    <div class="brand-box">GUZADO <img src="logo/guzado.png" alt="Logo Guzado"></div>
-    <div class="brand-box">JBAGY <img src="logo/zbagy.png" alt="Logo Jbagy"></div>
-    <div class="brand-box">ROWAY <img src="logo/roway.png" alt="Logo Roway"></div>
-    <div class="brand-box">TEELAB <img src="logo/teelab.png" alt="Logo Teelab"></div>
-    <div class="brand-box">PEALO <img src="logo/pealo.jpg" alt="Logo Pealo"></div>
-    <div class="brand-box">TORANO <img src="logo/torano.png" alt="Logo Torano"></div>
-    <div class="brand-box">LADOS <img src="logo/lados.png" alt="Logo Lados"></div>
-    <div class="brand-box">POLOMANOR <img src="logo/polomanor.png" alt="Logo Polomanor"></div>
-    <div class="brand-box">LEVENTS <img src="logo/levents.png" alt="Logo Levents"></div>
-    <div class="brand-box">THE BAD GOD <img src="logo/thebadgod.png" alt="Logo The Bad God"></div>
-    <div class="brand-box">ONOFF <img src="logo/onoff.png" alt="Logo Onoff"></div>
+    <div class="brand-box">82X <img src="logo/82x.png" alt="Logo 82X"></div>
+    <div class="brand-box">DHC <img src="logo/dhc.png" alt="Logo DHC"></div>
+    <div class="brand-box">CJ INNERB <img src="logo/innerb.png" alt="Logo CJ INNERB"></div>
+    <div class="brand-box">OMRON <img src="logo/omron.png" alt="Logo OMRON"></div>
+    <div class="brand-box">ORIHIRO <img src="logo/orihiro.png" alt="Logo ORIHIRO"></div>
+    <div class="brand-box">FAMAPRO <img src="logo/famapro.png" alt="Logo FAMAPRO"></div>
+    <div class="brand-box">COCOLUX <img src="logo/cocolux.png" alt="Logo COCOLUX"></div>
+    <div class="brand-box">UNICHARM <img src="logo/unicharm.png" alt="Logo UNICHARM"></div>
+    <div class="brand-box">PURITAN'S PRIDE <img src="logo/puritan.png" alt="Logo PURITAN'S PRIDE"></div>
+    <div class="brand-box">MEDICAL <img src="logo/medical.png" alt="Logo MEDICAL"></div>
+    <div class="brand-box">FOCALLURE <img src="logo/focallure.png" alt="Logo FOCALLURE"></div>
+    <div class="brand-box">DOCTOR CARE <img src="logo/doctorcare.png" alt="Logo DOCTOR CARE"></div>
   </div>
 
   <div class="layout">
@@ -80,14 +83,14 @@
     <aside class="sidebar" role="complementary" aria-label="Bộ lọc sản phẩm">
       <h3>Tất Cả Danh Mục</h3>
       <ul>
-        <li data-category="vest">Áo Vest, Áo Khoác</li>
-        <li data-category="thun">Áo Thun Nam</li>
-        <li data-category="hoodie">Áo Hoodie, Áo Len & Áo Nỉ</li>
-        <li data-category="jean">Quần Jean</li>
-        <li data-category="quan-dai">Quần Dài Nam</li>
-        <li data-category="polo">Áo Polo</li>
-        <li data-category="so-mi">Áo Sơ Mi</li>
-        <li data-category="phu-kien">Phụ Kiện Nam</li>
+        <li data-category="tdsk">Theo dõi sức khỏe</li>
+        <li data-category="suckhoe">Sức khỏe</li>
+        <li data-category="vattu">Vật tư y tế</li>
+        <li data-category="contrung">Chống Muỗi & xua đuổi côn trùng</li>
+        <li data-category="thucphamcn">Thực phẩm chức năng</li>
+        <li data-category="tanguoilon">Tã người lớn</li>
+        <li data-category="hotrolamdep">Hỗ trợ làm đẹp</li>
+        <li data-category="caithiensk">Dụng cụ cải thiện sức khỏe</li>
       </ul>
 
       <h3>Bộ Lọc Tìm Kiếm</h3>
@@ -104,10 +107,10 @@
       <div class="filter-group">
         <strong>Thương Hiệu</strong>
         <ul>
-          <li><input type="checkbox" data-filter="brand" value="COOLMATE"> COOLMATE</li>
-          <li><input type="checkbox" data-filter="brand" value="AVOCADO"> AVOCADO</li>
-          <li><input type="checkbox" data-filter="brand" value="LEVI'S"> LEVI'S</li>
-          <li><input type="checkbox" data-filter="brand" value="GENTLEMAN"> GENTLEMAN</li>
+          <li><input type="checkbox" data-filter="brand" value="DHC"> DHC</li>
+          <li><input type="checkbox" data-filter="brand" value="Durex"> Durex</li>
+          <li><input type="checkbox" data-filter="brand" value="Feelex"> Feelex</li>
+          <li><input type="checkbox" data-filter="brand" value="Uni Mask"> Uni Mask</li>
         </ul>
       </div>
 
@@ -160,34 +163,34 @@
 
       <section class="products" id="product-list">
         <!-- Thêm onclick cho toàn bộ product-card để chuyển đến đặt mua -->
-        <div class="product-card" data-category="thun" data-ma-sp="1" data-price="50000" data-brand="COOLMATE" data-rating="4" data-shipping="Nhanh" data-condition="Mới" data-shop-type="Shopee Mall" onclick="buyNow(1)">
-          <img src="images/áo thun 1.png" alt="Áo Thun Nam Basic" />
-          <div class="title">Áo Thun Nam Basic</div>
-          <div class="price">₫150.000</div>
+        <div class="product-card" data-category="thucphamcn" data-ma-sp="1" data-price="250000" data-brand="DHC" data-rating="4" data-shipping="Nhanh" data-condition="Mới" data-shop-type="Shopee Mall" onclick="buyNow(1)">
+          <img src="images/sức khỏe 1.webp" alt="Trà đông trùng" />
+          <div class="title">Trà đông trùng</div>
+          <div class="price">₫250.000</div>
           <button class="buy-now-btn" onclick="event.stopPropagation(); buyNow(1)">
             <i class="bi bi-cart-check"></i> Đặt mua
           </button>
         </div>
-        <div class="product-card" data-category="vest" data-ma-sp="2" data-price="320000" data-brand="LEVI'S" data-rating="5" data-shipping="Hỏa Tốc" data-condition="Mới" data-shop-type="Shop Yêu Thích" onclick="buyNow(2)">
-          <img src="images/áo thun 2.png" alt="Áo Vest Công Sở" />
-          <div class="title">Áo Vest Công Sở</div>
+        <div class="product-card" data-category="caithiensk" data-ma-sp="2" data-price="320000" data-brand="OMRON" data-rating="5" data-shipping="Hỏa Tốc" data-condition="Mới" data-shop-type="Shop Yêu Thích" onclick="buyNow(2)">
+          <img src="images/sức khỏe 2.png" alt="Cân sức khỏe" />
+          <div class="title">Cân sức khỏe</div>
           <div class="price">₫320.000</div>
           <button class="buy-now-btn" onclick="event.stopPropagation(); buyNow(2)">
             <i class="bi bi-cart-check"></i> Đặt mua
           </button>
         </div>
-        <div class="product-card" data-category="jean" data-ma-sp="3" data-price="199000" data-brand="AVOCADO" data-rating="3" data-shipping="Tiết Kiệm" data-condition="Đã Sử Dụng" data-shop-type="Shopee Mall" onclick="buyNow(3)">
-          <img src="images/áo thun nữ.png" alt="Quần Jean Nam" />
-          <div class="title">Quần Jean Nam</div>
+        <div class="product-card" data-category="thucphamcn" data-ma-sp="3" data-price="199000" data-brand="ORIHIRO" data-rating="3" data-shipping="Tiết Kiệm" data-condition="Đã Sử Dụng" data-shop-type="Shopee Mall" onclick="buyNow(3)">
+          <img src="images/sức khỏe 3.png" alt="Trà lá ổi" />
+          <div class="title">Trà lá ổi</div>
           <div class="price">₫199.000</div>
           <button class="buy-now-btn" onclick="event.stopPropagation(); buyNow(3)">
             <i class="bi bi-cart-check"></i> Đặt mua
           </button>
         </div>
-        <div class="product-card" data-category="hoodie" data-ma-sp="4" data-price="150000" data-brand="GENTLEMAN" data-rating="4" data-shipping="Nhanh" data-condition="Mới" data-shop-type="Shop Yêu Thích+" onclick="buyNow(4)">
-          <img src="images/áo thun nữ 4.png" alt="Áo Hoodie Dày Dặn" />
-          <div class="title">Áo Hoodie Dày Dặn</div>
-          <div class="price">₫150.000</div>
+        <div class="product-card" data-category="caithiensk" data-ma-sp="4" data-price="500000" data-brand="FAMAPRO" data-rating="4" data-shipping="Nhanh" data-condition="Mới" data-shop-type="Shop Yêu Thích+" onclick="buyNow(4)">
+          <img src="images/sức khỏe 4.png" alt="máy massage cổ vai gáy" />
+          <div class="title">máy massage cổ vai gáy</div>
+          <div class="price">₫500.000</div>
           <button class="buy-now-btn" onclick="event.stopPropagation(); buyNow(4)">
             <i class="bi bi-cart-check"></i> Đặt mua
           </button>
@@ -211,14 +214,66 @@
     window.location.href = 'chiTietSanPham.php?MA_SP=' + ma_sp + '&buy_now=1';
   }
 
-  // Hàm áp dụng filters (kết hợp tất cả) - Giữ nguyên logic của bạn
+  // Hàm áp dụng filters (kết hợp tất cả)
   function applyFilters() {
     const selectedShipping = Array.from(document.querySelectorAll('input[data-filter="shipping"]:checked')).map(cb => cb.value);
-    // ... (phần còn lại của hàm applyFilters, bạn có thể hoàn thiện nếu cần)
+    const selectedBrands = Array.from(document.querySelectorAll('input[data-filter="brand"]:checked')).map(cb => cb.value);
+    const selectedShopTypes = Array.from(document.querySelectorAll('input[data-filter="shop-type"]:checked')).map(cb => cb.value);
+    const selectedConditions = Array.from(document.querySelectorAll('input[data-filter="condition"]:checked')).map(cb => cb.value);
+    const selectedRatings = Array.from(document.querySelectorAll('input[data-filter="rating"]:checked')).map(cb => cb.value);
+    const minPrice = parseInt(document.querySelector('.price-range input:first-child').value) || 0;
+    const maxPrice = parseInt(document.querySelector('.price-range input:last-child').value) || Infinity;
+
+    productCards.forEach(card => {
+      const shipping = card.getAttribute('data-shipping');
+      const brand = card.getAttribute('data-brand');
+      const shopType = card.getAttribute('data-shop-type');
+      const condition = card.getAttribute('data-condition');
+      const rating = parseInt(card.getAttribute('data-rating'));
+      const price = parseInt(card.getAttribute('data-price'));
+
+      const matchesShipping = selectedShipping.length === 0 || selectedShipping.includes(shipping);
+      const matchesBrand = selectedBrands.length === 0 || selectedBrands.includes(brand);
+      const matchesShopType = selectedShopTypes.length === 0 || selectedShopTypes.includes(shopType);
+      const matchesCondition = selectedConditions.length === 0 || selectedConditions.includes(condition);
+      const matchesRating = selectedRatings.length === 0 || selectedRatings.some(r => rating >= parseInt(r));
+      const matchesPrice = price >= minPrice && price <= maxPrice;
+
+      if (matchesShipping && matchesBrand && matchesShopType && matchesCondition && matchesRating && matchesPrice) {
+        card.style.display = 'block';
+      } else {
+        card.style.display = 'none';
+      }
+    });
   }
 
-  // Các event listener khác (giữ nguyên nếu có)
-  // Ví dụ: categories.forEach(...), sortButtons.forEach(...), etc.
+  // Event listeners
+  categories.forEach(li => {
+    li.addEventListener('click', () => {
+      const category = li.getAttribute('data-category');
+      productCards.forEach(card => {
+        if (card.getAttribute('data-category') === category) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  });
+
+  sortButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const sortBy = btn.getAttribute('data-sort');
+      // Thêm logic sắp xếp nếu cần (ví dụ: sắp xếp theo giá)
+      // Hiện tại chỉ là placeholder
+    });
+  });
+
+  applyBtn.addEventListener('click', applyFilters);
+
+  checkboxes.forEach(cb => {
+    cb.addEventListener('change', applyFilters);
+  });
 </script>
 </body>
 </html>
