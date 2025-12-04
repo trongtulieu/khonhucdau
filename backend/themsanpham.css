@@ -1,0 +1,98 @@
+/* Reset cơ bản */
+* {
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Arial, sans-serif;
+}
+
+body {
+    background: #f5f6f8;
+    margin: 0;
+    padding: 0;
+}
+
+/* Container form */
+.container {
+    width: 500px;
+    max-width: 95%;
+    margin: 50px auto;
+    background: #fff;
+    padding: 28px 30px;
+    border-radius: 16px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+}
+
+/* Tiêu đề */
+h2 {
+    text-align: center;
+    margin-bottom: 24px;
+    color: #333;
+}
+
+/* Label */
+label {
+    font-weight: 600;
+    color: #444;
+    display: block;
+    margin-bottom: 6px;
+}
+
+/* Input + Textarea */
+input[type="text"],
+input[type="number"],
+textarea,
+input[type="file"] {
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    outline: none;
+    margin-bottom: 18px;
+    transition: 0.2s;
+    background: #fafafa;
+}
+
+input:focus,
+textarea:focus {
+    border-color: #ee4d2d;
+    background: #fff;
+}
+
+/* Textarea cao hơn */
+textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+/* Nút submit */
+input[type="submit"] {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 12px;
+    background: #ee4d2d;
+    color: white;
+    font-weight: 600;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+input[type="submit"]:hover {
+    background: #d73211;
+    transform: translateY(-1px);
+}
+
+/* Thông báo */
+p {
+    text-align: center;
+    font-weight: 600;
+    margin-bottom: 16px;
+}
+
+/* Responsive nhỏ */
+@media (max-width: 500px) {
+    .container {
+        margin: 20px 10px;
+        padding: 20px;
+    }
+}

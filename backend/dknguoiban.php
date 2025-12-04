@@ -142,18 +142,8 @@ $step = isset($_GET['step']) ? $_GET['step'] : 'start';
 </style>
 </head>
 <body>
-<header>
-  <div class="logo">
-    <img src="logoshoppe.png" alt="Shopee logo" />
-    <span>
-      <?php echo ($step === 'start') ? "Đăng ký trở thành Người bán Shopee" : "Thông tin Người bán Shopee"; ?>
-    </span>
-  </div>
-  <div class="user">
-    <div class="avatar">👤</div>
-    <span>1bw3d7e77v</span>
-  </div>
-</header>
+    <?php include 'header.php'; ?>
+
 
 <div class="layout">
   <main>
@@ -172,22 +162,8 @@ $step = isset($_GET['step']) ? $_GET['step'] : 'start';
 </div>
         <?php endif; ?>
     </main>
-  <aside class="sidebar" aria-label="Sidebar chức năng">
-    <button title="Thông báo" aria-label="Thông báo">
-      <!-- Chuông thông báo -->
-      <svg viewBox="0 0 24 24"><path d="M12 24a2.99 2.99 0 0 0 2.83-2H9.17a3 3 0 0 0 2.83 2zm6.36-6v-5a6.36 6.36 0 0 0-5-6V6a1.36 1.36 0 0 0-2.72 0v1a6.36 6.36 0 0 0-5 6v5l-1.64 2h16.92z"/></svg>
-    </button>
-
-    <button title="Trợ giúp" aria-label="Trợ giúp">
-      <!-- Biểu tượng hỗ trợ (người đeo tai nghe)-->
-      <svg viewBox="0 0 24 24"><path d="M12 1a11 11 0 1 0 11 11A11 11 0 0 0 12 1zm4 14h-2v-2a2 2 0 0 0-4 0v2H8v-4a4 4 0 0 1 8 0z"/></svg>
-    </button>
-
-    <button title="Chat" aria-label="Chat">
-      <!-- Biểu tượng chat -->
-      <svg viewBox="0 0 24 24"><path d="M21 6h-18c-1.1 0-2 .9-2 2v10a2 2 0 0 0 2 2h4l4 4 4-4h4a2 2 0 0 0 2-2v-10c0-1.1-.9-2-2-2z"/></svg>
-    </button>
-  </aside>
+  
+ 
 </div>
 
 </body>

@@ -11,40 +11,6 @@
     background: #f5f5f5;
     color: #333;
   }
-  header {
-    height: 50px;
-    display: flex;
-    align-items: center;
-    padding: 0 24px;
-    background: white;
-    border-bottom: 1px solid #eee;
-    font-size: 14px;
-    color: #222;
-    gap: 8px;
-  }
-  header .logo {
-    font-weight: 600;
-    color: #ee4d2d;
-    display: flex;
-    align-items: center;
-  }
-  header .logo svg {
-    height: 22px;
-    margin-right: 6px;
-  }
-  header .user {
-    margin-left: auto;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    color: #777;
-    font-size: 14px;
-  }
-  header .user svg {
-    width: 18px;
-    height: 18px;
-  }
-  
   /* Container chính */
   .container {
     max-width: 960px;
@@ -57,53 +23,78 @@
 
   /* Thanh tiến trình */
   .progress {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 36px;
-    user-select: none;
-  }
-  .progress-step {
-    flex: 1;
-    position: relative;
-    text-align: center;
-    font-size: 13px;
-    color: #bbb;
-  }
-  .progress-step.active,
-  .progress-step.completed {
-    color: #ee4d2d;
-    font-weight: 600;
-  }
-  .progress-step::after {
-    content: '';
-    position: absolute;
-    top: 9px;
-    right: 0;
-    height: 2px;
-    width: 100%;
-    background: #eee;
-    z-index: -1;
-  }
-  .progress-step:last-child::after {
-    display: none;
-  }
-  .progress-step.completed::after {
-    background: #ee4d2d;
-  }
-  .progress-step .circle {
-    width: 14px;
-    height: 14px;
-    border-radius: 50%;
-    background: #eee;
-    margin: 0 auto 8px;
-  }
-  .progress-step.active .circle,
-  .progress-step.completed .circle {
-    background: #ee4d2d;
-  }
-  .progress-step.completed {
-    color: #ee4d2d;
-  }
+  display: flex;
+  justify-content: space-between;
+  max-width: 700px;
+  margin: 0 auto 32px;
+  position: relative;
+}
+
+.step {
+  flex: 1;
+  text-align: center;
+  font-size: 14px;
+  color: #bbb;
+  position: relative;
+}
+
+/* line nối giữa các bước */
+.step::after {
+  content: "";
+  position: absolute;
+  top: 10px;      
+  right: -50%;
+  width: 100%;
+  height: 2px;
+  background: #e0e0e0;
+  z-index: 1;
+}
+
+/* bước cuối thì không có line */
+.step:last-child::after {
+  display: none;
+}
+
+.step-dot {
+  display: block;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #e0e0e0;
+  margin: 0 auto 8px;
+  position: relative;
+  z-index: 2;
+}
+
+/* bước đang active */
+.step.active {
+  color: #ee4d2d;
+  font-weight: 600;
+}
+
+.step.active .step-dot {
+  background: #ee4d2d;
+}
+
+/* line đã hoàn thành */
+.step.active::after {
+  background: #ee4d2d;
+}
+.step.completed {
+  color: #ee4d2d;
+  font-weight: 600;
+}
+
+/* chấm bước đã xong */
+.step.completed .step-dot {
+  background: #ee4d2d;
+}
+
+/* line bước đã xong */
+.step.completed::after {
+  background: rgba(24, 211, 31, 1);
+}
+
 
   /* Nhóm vận chuyển */
   .shipping-group {
@@ -239,64 +230,31 @@
   .btn-next:hover {
     background-color: #d44125;
   }
-  /* 3 icon cột phải */
-  aside.sidebar {
-    position: fixed;
-    right: 20px;
-    top: 80px;
-    width: 64px;
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-    align-items: center;
-  }
-  aside.sidebar button {
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 0;
-  }
-  aside.sidebar svg {
-    width: 24px;
-    height: 24px;
-    fill: #ee4d2d;
-  }
-  aside.sidebar button:hover svg {
-    fill: #c43d1e;
-  }
 </style>
 </head>
 <body>
-
-<header>
-  <div class="logo">
-    <svg viewBox="0 0 24 24" fill="#ee4d2d" xmlns="http://www.w3.org/2000/svg"><path d="M20.12 1H3.88A2.88 2.88 0 0 0 1 3.88v16.24A2.88 2.88 0 0 0 3.88 23h16.24A2.88 2.88 0 0 0 23 20.12V3.88A2.88 2.88 0 0 0 20.12 1Zm-6.72 7.781 3.097 2.69-3.097 2.69V16a.754.754 0 0 1-1.056.7l-5.985-2.653c-.337-.149-.337-.602 0-.751l5.985-2.653a.754.754 0 0 1 1.056.7Zm6.16 6.662a.75.75 0 1 1 1.5 0 .75.75 0 0 1-1.5 0Z"/></svg>
-    Shopee Đăng ký trở thành Người bán Shopee
-  </div>
-  <div class="user">
-    <svg xmlns="http://www.w3.org/2000/svg" fill="#777" viewBox="0 0 24 24"><path d="M12 12a5 5 0 1 0-5-5 5 5 0 0 0 5 5zm0 2c-3.33 0-10 1.67-10 5v3h20v-3c0-3.33-6.67-5-10-5z"/></svg>
-    <span>1bw3d7e77v ▼</span>
-  </div>
-</header>
-
+<?php
+include 'header.php';
+?>
 <div class="container" role="main">
   <!-- Thanh tiến trình -->
-  <nav aria-label="Tiến trình đăng ký">
-    <div class="progress" aria-current="step">
-      <div class="progress-step completed">
-        <div class="circle" aria-hidden="true"></div>
-        Thông tin Shop
-      </div>
-      <div class="progress-step active">
-        <div class="circle" aria-hidden="true"></div>
-        Cài đặt vận chuyển
-      </div>
-      <div class="progress-step">
-        <div class="circle" aria-hidden="true"></div>
-        Hoàn tất
-      </div>
-    </div>
-  </nav>
+  <div class="progress">
+  <div class="step completed">
+    <span class="step-dot"></span>
+    Thông tin Shop
+  </div>
+
+  <div class="step completed">
+    <span class="step-dot"></span>
+    Cài đặt vận chuyển
+  </div>
+
+  <div class="step">
+    <span class="step-dot"></span>
+    Hoàn tất
+  </div>
+</div>
+
 
   <!-- Các nhóm vận chuyển -->
   <section aria-label="Các phương thức vận chuyển">
